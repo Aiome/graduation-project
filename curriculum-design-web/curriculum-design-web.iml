@@ -60,6 +60,7 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.37" level="project" />
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:4.1.6" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:log4j-over-slf4j:1.7.7" level="project" />
     <orderEntry type="module" module-name="curriculum-design-util" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.9" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />

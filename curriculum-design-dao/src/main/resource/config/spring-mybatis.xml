@@ -68,18 +68,18 @@
     </bean>
     
     <!-- 配置druid监控spring jdbc -->
-    <!--<bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"></bean>-->
-    <!--<bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype">-->
-        <!--<property name="patterns">-->
-            <!--<list>-->
-                <!--<value>top.aiome.*.service.*</value>-->
-            <!--</list>-->
-        <!--</property>-->
-    <!--</bean>-->
-    <!--<aop:config>-->
-        <!--<aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" />-->
-    <!--</aop:config>-->
-    <!---->
+    <bean id="druid-stat-interceptor" class="com.alibaba.druid.support.spring.stat.DruidStatInterceptor"></bean>
+    <bean id="druid-stat-pointcut" class="org.springframework.aop.support.JdkRegexpMethodPointcut" scope="prototype">
+        <property name="patterns">
+            <list>
+                <value>top.aiome.*.service.*</value>
+            </list>
+        </property>
+    </bean>
+    <aop:config>
+        <aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" />
+    </aop:config>
+
   
     
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
@@ -98,37 +98,26 @@
     </bean>  
      
         <!-- (事务管理)transaction manager -->  
-    <!--<bean id="transactionManager"  -->
-        <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  -->
-        <!--<property name="dataSource" ref="dataSource" />  -->
-    <!--</bean>-->
+    <bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
 
-	<!--<tx:advice id="transactionAdvice" transaction-manager="transactionManager">-->
-		<!--&lt;!&ndash; -->
-	    <!--<tx:attributes>-->
-	        <!--<tx:method name="save*" propagation="REQUIRED" rollback-for="Exception" />-->
-	        <!--<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception" />-->
-	        <!--<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>-->
-	        <!--<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>-->
-	        <!--<tx:method name="get*" propagation="SUPPORTS" read-only="true"/>-->
-			<!--<tx:method name="select*" propagation="SUPPORTS" read-only="true"/>-->
-	        <!--<tx:method name="*" propagation="SUPPORTS" read-only="true"/>-->
-	    <!--</tx:attributes>-->
-	     <!--&ndash;&gt;-->
-	     <!--<tx:attributes>-->
-	        <!--<tx:method name="save*" propagation="REQUIRED" rollback-for="Exception" />-->
-	        <!--<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception" />-->
-	        <!--<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>-->
-	        <!--<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>-->
-	        <!--<tx:method name="get*" propagation="REQUIRED" read-only="true"/>-->
-			<!--<tx:method name="select*" propagation="REQUIRED" read-only="true"/>-->
-	        <!--<tx:method name="*" propagation="REQUIRED" read-only="true"/>-->
-	    <!--</tx:attributes>-->
-	<!--</tx:advice>-->
-    <!---->
-    <!--<aop:config>-->
-        <!--<aop:pointcut id="transactionPointcut" expression="execution(* top.aiome.*.service..*SVImpl.*(..))" />-->
-        <!--<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"  order="1"/>-->
-    <!--</aop:config>-->
+	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+	     <tx:attributes>
+	        <tx:method name="save*" propagation="REQUIRED" rollback-for="Exception" />
+	        <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception" />
+	        <tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+	        <tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>
+	        <tx:method name="get*" propagation="REQUIRED" read-only="true"/>
+			<tx:method name="select*" propagation="REQUIRED" read-only="true"/>
+	        <tx:method name="*" propagation="REQUIRED" read-only="true"/>
+	    </tx:attributes>
+	</tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="transactionPointcut" expression="execution(* top.aiome.*.service..*SVImpl.*(..))" />
+        <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"  order="1"/>
+    </aop:config>
 	
 </beans>

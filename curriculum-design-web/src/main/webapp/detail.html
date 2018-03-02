@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>拼团商城</title>
+	    <meta name="keywords" content="拼团商城" />
+	    <meta name="description" content="拼团商城" />
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <script src="js/mui.min.js"></script> 
+	    <link href="css/mui.min.css" rel="stylesheet" type="text/css"/>
+	    <link rel="stylesheet" href="css/style.css" type="text/css" />
+	    <link rel="stylesheet" href="css/swiper.css" />
+	    <script type="text/javascript">
+	        !function(J){function H(){var d=E.getBoundingClientRect().width;var e=(d/7.5>100*B?100*B:(d/7.5<42?42:d/7.5));E.style.fontSize=e+"px",J.rem=e}var G,F=J.document,E=F.documentElement,D=F.querySelector('meta[name="viewport"]'),B=0,A=0;if(D){var y=D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);y&&(A=parseFloat(y[1]),B=parseInt(1/A))}if(!B&&!A){var u=(J.navigator.appVersion.match(/android/gi),J.navigator.appVersion.match(/iphone/gi)),t=J.devicePixelRatio;B=u?t>=3&&(!B||B>=3)?3:t>=2&&(!B||B>=2)?2:1:1,A=1/B}if(E.setAttribute("data-dpr",B),!D){if(D=F.createElement("meta"),D.setAttribute("name","viewport"),D.setAttribute("content","initial-scale="+A+", maximum-scale="+A+", minimum-scale="+A+", user-scalable=no"),E.firstElementChild){E.firstElementChild.appendChild(D)}else{var s=F.createElement("div");s.appendChild(D),F.write(s.innerHTML)}}J.addEventListener("resize",function(){clearTimeout(G),G=setTimeout(H,300)},!1),J.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(G),G=setTimeout(H,300))},!1),H()}(window);
+	        if (typeof(M) == 'undefined' || !M){
+	            window.M = {};
+	        }
+	    </script>
+	</head>
+	<body>
+		<!--图片轮播-->
+		<div id="slider" class="mui-slider" >
+		  <div class="mui-slider-group mui-slider-loop">
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#"> <img src="images/1.png"> </a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#"> <img src="images/1.png"> </a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#"><img src="images/1.png"></a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#"> <img src="images/1.png"> </a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="images/1.png">
+		      </a>
+		    </div>
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#"><img src="images/1.png"> </a>
+		    </div>
+		  </div>
+		  <div class="mui-slider-indicator">
+		    <div class="mui-indicator mui-active"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		  </div>
+		</div>
+		<div class="g-price">
+			<span class="fl money">￥49.9</span>
+			<del class="fl delmoney">￥198</del>
+			<i class="fr num">累计销量：1200件</i>
+		</div>
+		<div class="g-desc">
+			<h2>折叠布衣柜钢管加粗加固简易衣柜布艺衣橱组装无纺布衣柜中号</h2>
+			<p>产品尺寸长106*宽45*高158cm 优质无纺布，经典花色，成就经典款式， 多格局收纳，密封效果佳，加粗挂衣杆，加厚布套，衣柜更加耐用，承重效果更佳！</p>
+			<p>支付开团并邀请<i>1</i>人参团，人数不足自动退款</p>
+		</div>
+		<!--最近的团购-->
+		<h2 class="nearbg-title">以下小伙伴正在发起团购，您可以直接参与</h2>
+		<!--最近开团1-->
+		<div class="nearby-group-detail">
+			<div class="nearbg-img"><img src="images/t1.jpg"/></div>
+			<div class="nearbg-btn">
+				<div class="nearbg-infor">
+					<div class="owner fl">王丽</div>
+					<div class="num fr">还差1人成团</div>
+				</div>
+				<div class="nearbg-infor">
+					<div class="owner fl">上海</div>
+					<div class="num fr clock" ></div>
+				</div>
+			</div>
+			<div class="nearbg-canquan">
+				<span>去参团</span>
+				<div class="qucan-tuan-arrow"></div>
+			</div>			
+		</div>
+		<!--最近开团2-->
+		<div class="nearby-group-detail">
+			<div class="nearbg-img"><img src="images/t1.jpg"/></div>
+			<div class="nearbg-btn">
+				<div class="nearbg-infor">
+					<div class="owner fl">王丽</div>
+					<div class="num fr">还差1人成团</div>
+				</div>
+				<div class="nearbg-infor">
+					<div class="owner fl">上海</div>
+					<div class="num fr clock"></div>
+				</div>
+			</div>
+			<div class="nearbg-canquan">
+				<span>去参团</span>
+				<div class="qucan-tuan-arrow"></div>
+			</div>			
+		</div>
+		<div class="g-mall-content">
+			<img src="images/333.jpg"/>
+		</div>
+		<!--固定在底部的按钮-->
+		<div class="mb-50"></div>
+		<div class="fix-mall-btn">
+			<div class="fix-mall-index fl">
+				<a href="index.html">
+					<i class="iconfont">&#xe637;</i>
+					<p>首页</p>
+				</a>
+				<a href="javacsript:;" class="collect">
+					<i class="iconfont">&#xe6bd;</i>
+					<p>收藏</p>
+				</a>
+			</div>
+			<div class="fix-buy-btn fr" style="background: #ff947a;">
+				<p>49.9</p>
+				<p>2人团</p>
+			</div>
+			<div class="fix-buy-btn fr" style="background: #ff5943;">
+				<p>单独购买</p>
+				<p>49.9</p>
+			</div>
+		</div>
+		<!--选择商品属性弹出框-->
+		<div class="mui-backdrop"></div>
+		<div class="g-detail">
+			<div class="g-detail-top">
+				<div class="g-detail-close"><img src="images/quit_button.png"/></div>
+				<div class="g-top-img fl"><img src="images/goods.jpg"/></div>
+				<div class="g-top-info fl">
+					<h2>折叠布衣柜钢管加粗加固简易衣柜布艺衣橱组装无纺布衣柜中号</h2>
+					<p class="price">￥56</p>
+					<p class="select">请选择颜色尺码</p>
+				</div>
+			</div>
+			<div class="g-detail-color">
+				<h2>颜色</h2>
+				<ul>
+					<li class="current">玫红</li>
+					<li>黑色</li>
+					<li>酒红</li>
+					<li>粉色</li>
+				</ul>
+			</div>
+			<div class="g-detail-size">
+				<h2>尺码</h2>
+				<ul>
+					<li class="current">S</li>
+					<li>M</li>
+					<li>L</li>
+					<li>XL</li>
+					<li>2XL</li>
+					<li>3XL</li>
+				</ul>
+			</div>
+			<div class="g-detail-num">
+				<h2 class="fl">购买数量</h2>
+				<div class="fr">
+	                <div class="mui-numbox" data-numbox-min='0'>
+					  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+					  <input class="mui-numbox-input" type="number" />
+					  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+					</div>
+		         </div>
+	         </div>
+            <div class="g-detail-btn">
+            	<button type="button">确定</button>
+            </div>
+		</div>
+		<script src="js/jquery-1.10.1.min.js"></script>
+	    <script src="js/swiper.min.js"></script>
+	    <script type="text/javascript" src="js/comment.js" ></script>
+	    <script type="text/javascript" src="js/jquery.countdown.min.js" ></script>
+	    <script type="text/javascript">
+			$(function(){
+				var twoDaysFromNow = new Date().valueOf() + 2 * 24 * 60 * 60 * 1000;
+				$('.clock').countdown(twoDaysFromNow, function(event) {
+				  var totalHours = event.offset.totalDays * 24 + event.offset.hours;
+				  $(this).html(event.strftime(totalHours + '  : %M : %S'));
+				});
+			})
+		</script>
+        <script>
+			
+		</script>
+
+	</body>
+</html>

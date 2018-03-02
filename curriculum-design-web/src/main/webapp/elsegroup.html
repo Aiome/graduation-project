@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <title>拼团商城</title>
+	    <meta name="keywords" content="拼团商城" />
+	    <meta name="description" content="风靡全国的拼团商城，优质商品新鲜直供" />
+	    <link href="css/mui.min.css" type="text/css" rel="stylesheet" />
+	    <link href="css/style.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript"> 
+	        !function(J){function H(){var d=E.getBoundingClientRect().width;var e=(d/7.5>100*B?100*B:(d/7.5<42?42:d/7.5));E.style.fontSize=e+"px",J.rem=e}var G,F=J.document,E=F.documentElement,D=F.querySelector('meta[name="viewport"]'),B=0,A=0;if(D){var y=D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);y&&(A=parseFloat(y[1]),B=parseInt(1/A))}if(!B&&!A){var u=(J.navigator.appVersion.match(/android/gi),J.navigator.appVersion.match(/iphone/gi)),t=J.devicePixelRatio;B=u?t>=3&&(!B||B>=3)?3:t>=2&&(!B||B>=2)?2:1:1,A=1/B}if(E.setAttribute("data-dpr",B),!D){if(D=F.createElement("meta"),D.setAttribute("name","viewport"),D.setAttribute("content","initial-scale="+A+", maximum-scale="+A+", minimum-scale="+A+", user-scalable=no"),E.firstElementChild){E.firstElementChild.appendChild(D)}else{var s=F.createElement("div");s.appendChild(D),F.write(s.innerHTML)}}J.addEventListener("resize",function(){clearTimeout(G),G=setTimeout(H,300)},!1),J.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(G),G=setTimeout(H,300))},!1),H()}(window);
+	        if (typeof(M) == 'undefined' || !M){
+	            window.M = {};
+	        }
+	    </script>
+	</head>
+	<body>
+		<!--图片轮播-->
+		<div id="slider" class="mui-slider" >
+		  <div class="mui-slider-group mui-slider-loop">
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#"> <img src="images/1.png"> </a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#"> <img src="images/1.png"> </a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#"><img src="images/1.png"></a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#"> <img src="images/1.png"> </a>
+		    </div>
+		    <div class="mui-slider-item">
+		      <a href="#">
+		        <img src="images/1.png">
+		      </a>
+		    </div>
+		    <div class="mui-slider-item mui-slider-item-duplicate">
+		      <a href="#"><img src="images/1.png"> </a>
+		    </div>
+		  </div>
+		  <div class="mui-slider-indicator">
+		    <div class="mui-indicator mui-active"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		    <div class="mui-indicator"></div>
+		  </div>
+		</div>
+		<!--提示消息-->
+		<div class="message">
+			<a href="">
+				<div class="message-img fl"><img src="images/t2.jpg" /></div>
+				<div class="message-text fr">哈哈正在拼团这个商品</div>
+			</a>
+		</div>
+		<div class="g-price">
+			<span class="fl money"><em>￥</em>68</span>
+			<del class="fl delmoney">￥198</del>
+			<i class="fr num">已团233件·2人团</i>
+		</div>
+		<div class="g-desc">
+			<h2>果汁软糖团购专享优惠</h2>
+			<p>果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁果汁</p>
+		</div>
+		<div class="g-description">
+			<div class="g-des-text1 server-btn">
+				<div class="g-des-text-fl fl">
+					<i class="iconfont ture">&#xe767;</i><span>全场包邮</span>
+					<i class="iconfont ture">&#xe767;</i><span>7天退货</span>
+					<i class="iconfont ture">&#xe767;</i><span>假一赔十</span>
+				</div>
+			</div>
+		</div>
+		<!--服务说明隐藏-->
+			<div class="mui-backdrop" style="display: none;"></div>
+			<div class="server">
+				<h2>服务说明</h2>
+				<div class="g-detail-close"><img src="images/quit_button.png"></div>
+				<div class="server-text-item">
+					<div class="fl"><i class="iconfont">&#xe614;</i></div>
+					<div class="fl">
+						<span>全场包邮</span>
+						<p>所有商品均无条件包邮</p>
+					</div>
+				</div>
+				<div class="server-text-item">
+					<div class="fl"><i class="iconfont">&#xe614;</i></div>
+					<div class="fl">
+						<span>7天退换</span>
+						<p>商家承诺7天无理由退换货</p>
+					</div>
+				</div>
+				<div class="server-text-item">
+					<div class="fl"><i class="iconfont">&#xe614;</i></div>
+					<div class="fl">
+						<span>假一赔十</span>
+						<p>若收到的商品是假货，可获得加倍赔偿</p>
+					</div>
+				</div>
+			</div>
+			<!--服务说明隐藏-->
+		<!--剩余参团人数-->
+		<div class="join-group-num">
+			<h2 class="usertitle">仅剩1人参团</h2>
+			<div class="g-detail-user-wrapper">
+				<ul class="g-detail-users">
+					<li class="g-detail-user">
+						<span class="leader">团长</span>
+					</li>
+					<li class="g-detail-user left-user" style="background: url(images/user.png);background-size: 100% 100%;">
+						
+					</li>
+				</ul>
+				<div class="fnTimeCountDown" data-end="2017/12/25 13:40:13">
+			              剩余
+			        <span class="hour">00</span>
+			        <strong>时</strong>
+			        <span class="mini">00</span>
+			        <strong>分</strong>
+			        <span class="sec">00</span>
+			        <strong>秒</strong>
+			    </div>
+			    <div class="join-group">
+			    	<button type="button">一键参团</button>
+			    </div>
+			</div>
+		</div>
+		<!--拼团须知-->
+		<div class="g-instructions">
+			<h2 class="liketitle">拼图须知</h2>
+			<ul>
+				<li>· 邀请好友参团</li>
+				<li>· 人满分别发货</li>
+				<li>· 人不满将退款</li>
+			</ul>
+			<div class="quit"><img src="images/quit_button.png"/></div>
+		</div>
+		<!--猜你喜欢-->
+		<h2 class="liketitle">猜你喜欢</h2>
+		<div class="mui-content like">
+		    <div class="mui-row">
+		        <div class="mui-col-sm-6 mui-col-xs-6">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="">
+		                     <div class="like-img"><img src="images/pr1.jpg"/></div>
+		                     <h2 class="like-text">初春女童长袖衫初春女童长袖衫初春女童长袖衫</h2>
+		                     <div class="like-price">
+		                     	<span class="fl">¥26</span>
+		                     	<em class="fl">已团2220件</em>
+		                     	<button class="fr" type="button">参团 ></button>
+		                     </div>
+		                </a>
+		            </li>
+		        </div>
+		        <div class="mui-col-sm-6 mui-col-xs-6">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="">
+		                    <div class="like-img"><img src="images/pr1.jpg"/></div>
+		                     <h2 class="like-text">初春女童长袖衫初春女童长袖衫初春女童长袖衫</h2>
+		                     <div class="like-price">
+		                     	<span class="fl">¥26</span>
+		                     	<em class="fl">已团2220件</em>
+		                     	<button class="fr" type="button">参团 ></button>
+		                     </div>
+		                </a>
+		            </li>
+		        </div>
+		    </div>
+		    <div class="mui-row">
+		        <div class="mui-col-sm-6 mui-col-xs-6">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="">
+		                     <div class="like-img"><img src="images/pr1.jpg"/></div>
+		                     <h2 class="like-text">初春女童长袖衫初春女童长袖衫初春女童长袖衫</h2>
+		                     <div class="like-price">
+		                     	<span class="fl">¥26</span>
+		                     	<em class="fl">已团2220件</em>
+		                     	<button class="fr" type="button">参团 ></button>
+		                     </div>
+		                </a>
+		            </li>
+		        </div>
+		        <div class="mui-col-sm-6 mui-col-xs-6">
+		            <li class="mui-table-view-cell">
+		                <a class="mui-navigate-right" href="">
+		                    <div class="like-img"><img src="images/pr1.jpg"/></div>
+		                     <h2 class="like-text">初春女童长袖衫初春女童长袖衫初春女童长袖衫</h2>
+		                     <div class="like-price">
+		                     	<span class="fl">¥26</span>
+		                     	<em class="fl">已团2220件</em>
+		                     	<button class="fr" type="button">参团 ></button>
+		                     </div>
+		                </a>
+		            </li>
+		        </div>
+		    </div>
+		</div>
+		<div class="mb-50"></div>
+		<nav class="mui-bar mui-bar-tab ">
+		    <a class="mui-tab-item mui-active" href="index.html">
+		        <span class="mui-icon iconfont">&#xe622;</span>
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item" href="news.html">
+		        <span class="mui-icon iconfont">&#xe640;</span>
+		        <span class="mui-tab-label">新品</span>
+		    </a>
+		    <a class="mui-tab-item" href="haitao.html">
+		        <span class="mui-icon iconfont">&#xe600;</span>
+		        <span class="mui-tab-label">海淘</span>
+		    </a>
+		    <a class="mui-tab-item" href="search.html">
+		        <span class="mui-icon iconfont">&#xe625;</span>
+		        <span class="mui-tab-label">搜索</span>
+		    </a>
+		     <a class="mui-tab-item" href="member.html">
+		        <span class="mui-icon iconfont">&#xe6d7;</span>
+		        <span class="mui-tab-label">个人中心</span>
+		    </a>
+		</nav>
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+	    <script type="text/javascript" src="js/comment.js" ></script>
+	    <script type="text/javascript" src="js/time.js" ></script>
+		<script type="text/javascript">
+			 $(".fnTimeCountDown").fnTimeCountDown("2017/12/25 13:40:13");
+	    </script>
+	</body>
+</html>

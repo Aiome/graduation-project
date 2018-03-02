@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>拼团商城</title>
+    <meta name="keywords" content="拼团商城" />
+    <meta name="description" content="风靡全国的拼团商城，优质商品新鲜直供" />
+    <link href="css/mui.min.css" type="text/css" rel="stylesheet" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/mui.min.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/area.js"></script>
+    <script type="text/javascript">_init_area();</script>
+    <script type="text/javascript"> 
+        !function(J){function H(){var d=E.getBoundingClientRect().width;var e=(d/7.5>100*B?100*B:(d/7.5<42?42:d/7.5));E.style.fontSize=e+"px",J.rem=e}var G,F=J.document,E=F.documentElement,D=F.querySelector('meta[name="viewport"]'),B=0,A=0;if(D){var y=D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);y&&(A=parseFloat(y[1]),B=parseInt(1/A))}if(!B&&!A){var u=(J.navigator.appVersion.match(/android/gi),J.navigator.appVersion.match(/iphone/gi)),t=J.devicePixelRatio;B=u?t>=3&&(!B||B>=3)?3:t>=2&&(!B||B>=2)?2:1:1,A=1/B}if(E.setAttribute("data-dpr",B),!D){if(D=F.createElement("meta"),D.setAttribute("name","viewport"),D.setAttribute("content","initial-scale="+A+", maximum-scale="+A+", minimum-scale="+A+", user-scalable=no"),E.firstElementChild){E.firstElementChild.appendChild(D)}else{var s=F.createElement("div");s.appendChild(D),F.write(s.innerHTML)}}J.addEventListener("resize",function(){clearTimeout(G),G=setTimeout(H,300)},!1),J.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(G),G=setTimeout(H,300))},!1),H()}(window);
+        if (typeof(M) == 'undefined' || !M){
+            window.M = {};
+        }
+        
+        //城市选择
+		$(function(){
+			$("#address-btn").click(function(){
+				$(".addressbox, .mui-backdrop").show();
+			})
+			$(".addressbox .close").click(function(){
+				$(".addressbox, .mui-backdrop").hide();
+			})
+		})
+    </script>
+    
+</head>
+<body style="background: #f4f4f4;">
+    <ul class="address">
+    	<li id="address-btn">
+    		<a href="javascript:;">
+	    		<i class="iconfont fl">&#xe6c2;</i>
+	    		<h2 class="fl">添加收货地址  </h2>
+	    	    <i class="iconfont en fr">&#xe605;</i>
+    	    </a>
+    	</li>
+    	<!--添加收货地址-->
+    	<div class="mui-backdrop" style="display: none;"></div>
+        <div class="addressbox">
+        	<h2>添加新收货地址</h2>
+        	<div class="close"><img src="images/close.png"/></div>
+        	<ul class="address-infor">
+        		<li>
+        			<input type="text" placeholder="名字" class="name" />
+        			<input type="text" placeholder="电话" class="tele" />
+        		</li>
+        		<li>
+        			<select  name="province" id="province"></select>
+					<select  name="city" id="city" ></select>
+					<select  name="county" id="county"></select>
+        		</li>
+        		<li>
+        			<input type="text" placeholder="请填写详细街道地址" class="jiedao" />
+        		</li>
+        	</ul>
+        	<button class="save">保存</button>
+        </div>
+    	<li>
+    		<a href="address.html">
+	    		<i class="iconfont fl">&#xe615;</i>
+		    	<h2 class="fl">一键获取微信地址 </h2>
+		    	<i class="iconfont en fr">&#xe605;</i>
+	    	</a>
+	    </li>
+    </ul>
+    <div class="order-detail">
+    	<h2 class="name">京迈顺鞋业</h2>
+    	<ul class="list-product">
+	    	<li>
+	    		<a href="">
+	    			<img class="list-pro-img fl" src="images/pr1.jpg"/>
+	    			<div class="list-pro-text fr">
+	    				<h2>费列罗意大利进口巧克力DIYHello Kitty猫礼盒23粒，情人节礼物</h2>
+	    				<div class="list-pro-price">
+	    					<p>颜色：红色</p>
+	    					<p>尺码：38（女鞋）</p>
+	    					<span>￥11.9/件</span>
+	    				</div>
+	    			</div>
+	    		</a>
+	    	</li>
+    	</ul>
+    	<div class="num">
+			<span class="fl">数量</span>
+			<div class="mui-numbox fr" data-numbox-step='1' data-numbox-min='0' data-numbox-max='100'>
+			  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+			  <input class="mui-numbox-input" type="number" />
+			  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+			</div>
+		</div>
+    	<div class="pay">
+    		<i class="iconfont fl">&#xe6b7;</i>
+    		<div class="weixin"><span>微信支付</span><em>推荐</em></div>
+    		<i class="iconfont fr">&#xe65c;</i>
+    	</div>
+    </div>
+    <div class="mb-50"></div>
+    <div class="paymoney">
+    	<div class="money">实付款<span>￥11.9<i>免运费</i></span></div>
+    	<div class="pay-btn">立即支付</div>
+    </div>
+	
+</body>
+</html>
