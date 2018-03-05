@@ -2,8 +2,8 @@
 <Configuration status="WARN" monitorInterval="600">
   <properties>
     <!-- 日志文件路径和文件名 -->
-    <property name="logDir">/data/logs/channel-web</property>
-    <property name="fileName">channelWeb</property>
+    <property name="logDir">/data/logs/curriculum-design-web</property>
+    <property name="fileName">curriculum-design-web</property>
   </properties>
 
   <Appenders>

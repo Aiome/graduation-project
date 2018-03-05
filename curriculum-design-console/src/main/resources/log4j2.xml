@@ -3,7 +3,7 @@
   <properties>
     <!-- 日志文件路径和文件名 -->
     <property name="logDir">/data/logs/curriculum-design-console</property>
-    <property name="fileName">curriculum-design-console</property>
+    <property name="fileName">curriculum-design-web</property>
   </properties>
 
   <Appenders>
