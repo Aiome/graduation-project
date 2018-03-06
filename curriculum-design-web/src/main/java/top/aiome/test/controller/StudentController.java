@@ -21,13 +21,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import top.aiome.test.entity.Student;
 import top.aiome.test.entity.StudentExample;
-import top.aiome.test.service.impl.StudentSVImpl;
+import top.aiome.test.service.interfaces.IStudentSV;
 
 @Controller
 @RequestMapping("/student")
 public class StudentController {
 	@Autowired
-	private StudentSVImpl studentSV;
+	private IStudentSV studentSVImpl;
 
 	private static Logger logger = LoggerFactory.getLogger(StudentController.class);  
 	
@@ -36,7 +36,7 @@ public class StudentController {
 	public Map getStudentById(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) throws IOException{
 		Map map = new HashMap();
 		try {
-			Student student = studentSV.getStudentById(id);
+			Student student = studentSVImpl.getStudentById(id);
 			map.put("student", student);
 			map.put("result", "success");
 			map.put("promptMsg", "查询测试可删成功!");
@@ -75,7 +75,7 @@ public class StudentController {
 			/*studentExample.createCriteria().andNameEqualTo("zhangfei").andCodeEqualTo(student.getCode());
 			studentExample.setDistinct(true);
 			studentExample.setOrderByClause("id desc");*/
-			List<Student> students = studentSV.getStudents(studentExample);
+			List<Student> students = studentSVImpl.getStudents(studentExample);
 			
 			/**
 			 * 1、获取分页信息方式：
@@ -106,7 +106,7 @@ public class StudentController {
 		Map map = new HashMap();
 		int count = 0;
 		try {
-			count = studentSV.updateStudentById(student);
+			count = studentSVImpl.updateStudentById(student);
 			map.put("result", "success");
 			map.put("promptMsg", "更新测试可删成功!");
 			if (count != 1) {
@@ -137,7 +137,7 @@ public class StudentController {
 			/*
 			 * studentExample.createCriteria().andNameEqualTo("zhangfei");
 			 */
-			count = studentSV.updateStudent(student, studentExample);
+			count = studentSVImpl.updateStudent(student, studentExample);
 			map.put("result", "success");
 			map.put("promptMsg", "更新测试可删成功!");
 		} catch (Exception e) {
@@ -155,7 +155,7 @@ public class StudentController {
 		Map map = new HashMap();
 		int count = 0;
 		try {
-			count = studentSV.deleteStudentById(id);
+			count = studentSVImpl.deleteStudentById(id);
 			map.put("result", "success");
 			map.put("promptMsg", "删除测试可删成功!");
 			if (count != 1) {
@@ -184,7 +184,7 @@ public class StudentController {
 			/*
 			 * studentExample.createCriteria().andNameEqualTo("zhangfei");
 			 */
-			count = studentSV.deleteStudent(studentExample);
+			count = studentSVImpl.deleteStudent(studentExample);
 			map.put("result", "success");
 			map.put("promptMsg", "删除测试可删成功!");
 		} catch (Exception e) {
@@ -203,7 +203,7 @@ public class StudentController {
 		Map map = new HashMap();
 		int count = 0;
 		try {
-			count = studentSV.insertStudent(student);
+			count = studentSVImpl.insertStudent(student);
 			map.put("result", "success");
 			map.put("promptMsg", "新增测试可删成功!");
 		} catch (Exception e) {

@@ -1,4 +1,4 @@
-package top.aiome.curriculum.design.design;
+package top.aiome.curriculum.design;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
