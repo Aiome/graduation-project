@@ -98,14 +98,14 @@
         </dependency>
         <!-- log4j end-->
     </dependencies>
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-    </build>
+<build>
+<resources>
+    <resource>
+        <directory>src/main/java</directory>
+    </resource>
+    <resource>
+        <directory>src/main/resource</directory>
+    </resource>
+</resources>
+</build>
 </project>
