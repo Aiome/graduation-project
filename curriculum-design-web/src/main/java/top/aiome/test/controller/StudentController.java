@@ -40,6 +40,7 @@ public class StudentController {
 			map.put("student", student);
 			map.put("result", "success");
 			map.put("promptMsg", "查询测试可删成功!");
+			logger.info("通过ID查询信息");
 		} catch (Exception e) {
 			map.put("result", "failed");
 			map.put("promptMsg", "查询测试可删失败!");
