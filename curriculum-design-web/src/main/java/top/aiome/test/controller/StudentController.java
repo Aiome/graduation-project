@@ -19,9 +19,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import top.aiome.service.test.service.interfaces.IStudentSV;
 import top.aiome.test.entity.Student;
 import top.aiome.test.entity.StudentExample;
-import top.aiome.test.service.interfaces.IStudentSV;
 
 @Controller
 @RequestMapping("/student")

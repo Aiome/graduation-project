@@ -5,6 +5,8 @@
   <groupId>top.aiome.curriculum-design</groupId>
   <artifactId>curriculum-design</artifactId>
   <version>1.0-SNAPSHOT</version>
+
+
   <modules>
     <module>curriculum-design-dao</module>
     <module>curriculum-design-service</module>
@@ -44,12 +46,14 @@
       <commons-io.version>2.5</commons-io.version>
       <commons-codec.version>1.10</commons-codec.version>
       <commons-dbcp.version>1.4</commons-dbcp.version>
+      <commons-lang>2.6</commons-lang>
       <aspectjweaver.version>1.8.10</aspectjweaver.version>
       <javax.servlet-api>3.1.0</javax.servlet-api>
   </properties>
 
   <dependencyManagement>
       <dependencies>
+
           <!-- Junit测试 -->
           <dependency>
               <groupId>junit</groupId>
@@ -106,6 +110,17 @@
               <artifactId>spring-jdbc</artifactId>
               <version>${spring.version}</version>
           </dependency>
+          <dependency>
+              <groupId>org.springframework.data</groupId>
+              <artifactId>spring-data-redis</artifactId>
+              <version>1.7.2.RELEASE</version>
+          </dependency>
+          <dependency>
+              <groupId>redis.clients</groupId>
+              <artifactId>jedis</artifactId>
+              <version>2.9.0</version>
+          </dependency>
+
 
           <!-- mybatis核心包 -->
           <dependency>
@@ -237,6 +252,11 @@
               <!--<artifactId>commons-codec</artifactId>-->
               <!--<version>${commons-codec.version}</version>-->
           <!--</dependency>-->
+          <dependency>
+              <groupId>commons-lang</groupId>
+              <artifactId>commons-lang</artifactId>
+              <version>${commons-lang}</version>
+          </dependency>
 
           <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
           <dependency>

@@ -3,15 +3,22 @@
 	xmlns="http://www.springframework.org/schema/beans" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 					http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 					http://www.springframework.org/schema/context
 					http://www.springframework.org/schema/context/spring-context-4.3.xsd
+					http://www.springframework.org/schema/aop
+                    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 					http://www.springframework.org/schema/mvc
 					http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
     <!-- 使用组件扫描的方式可以一次扫描多个Controller -->
    	<context:component-scan base-package="top.aiome"></context:component-scan>
+
+    <!-- 开启支持@AspectJ风格的切面声明 -->
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>
+
     <!--也可以使用单个的配置方式，需要指定Controller的全限定名。-->
     <!--<bean name="/queryUser.action" class="top.aiome.TestController"/>-->
 

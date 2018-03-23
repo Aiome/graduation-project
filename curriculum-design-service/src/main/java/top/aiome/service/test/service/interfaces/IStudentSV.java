@@ -1,4 +1,4 @@
-package top.aiome.test.service.interfaces;
+package top.aiome.service.test.service.interfaces;
 
 import java.util.List;
 import top.aiome.test.entity.Student;
