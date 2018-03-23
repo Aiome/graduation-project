@@ -52,7 +52,7 @@ public class PreProcessor {
             reminds = seckillById.getSeckillCount() < 1 ?  0 : 1;
             //存入redis
             redisTemplate.opsForValue().set(generateRedisKey(seckillId),
-                    seckillById.getSeckillCount().toString(),60000, TimeUnit.MILLISECONDS);
+                    seckillById.getSeckillCount().toString(),5 * 60000, TimeUnit.MILLISECONDS);
         }
         return reminds;
     }

@@ -40,7 +40,6 @@ public class SeckillController {
 	@RequestMapping(value="getSeckillById")
 	public Map getSeckillById(Integer seckillid, HttpServletRequest request, HttpServletResponse response) throws IOException{
 		Map map = new HashMap();
-		logger.info("进入方法");
 		try {
 			SeckillInfo seckillInfo = new SeckillInfo();
 			seckillInfo.setSeckillId(seckillid);
