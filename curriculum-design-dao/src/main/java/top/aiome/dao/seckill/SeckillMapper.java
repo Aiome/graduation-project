@@ -1,7 +1,9 @@
 package top.aiome.dao.seckill;
 
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+
 import top.aiome.dao.seckill.entity.Seckill;
 import top.aiome.dao.seckill.entity.SeckillExample;
 
@@ -27,4 +29,6 @@ public interface SeckillMapper {
     int updateByPrimaryKeySelective(Seckill record);
 
     int updateByPrimaryKey(Seckill record);
+
+    int reduceInventory(Seckill record);
 }

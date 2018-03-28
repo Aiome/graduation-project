@@ -1,4 +1,4 @@
-package top.aiome;
+package top.aiome.util;
 
 /**
  * Created by mahongyan on 2018/3/23

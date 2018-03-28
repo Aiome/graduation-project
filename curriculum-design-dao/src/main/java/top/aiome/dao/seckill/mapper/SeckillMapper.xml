@@ -226,4 +226,10 @@
       seckill_count = #{seckillCount,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="reduceInventory" parameterType="top.aiome.dao.seckill.entity.Seckill">
+    update seckill
+    set
+    seckill_count = seckill_count -1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

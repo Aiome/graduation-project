@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,9 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import top.aiome.dao.seckill.entity.Seckill;
 import top.aiome.dao.seckill.entity.SeckillExample;
-import top.aiome.service.seckill.service.PreProcessor;
+import top.aiome.service.seckill.service.Processor;
 import top.aiome.service.seckill.service.SeckillInfo;
 import top.aiome.service.seckill.service.interfaces.ISeckillSV;
+import top.aiome.util.Constants;
 
 @Controller
 @RequestMapping("/seckill")
@@ -33,24 +37,31 @@ public class SeckillController {
 	private static Logger logger = LoggerFactory.getLogger(SeckillController.class);
 
 	@Autowired
-	private PreProcessor preProcessor;
+	private Processor preProcessor;
 
 
 	@ResponseBody
 	@RequestMapping(value="getSeckillById")
-	public Map getSeckillById(Integer seckillid, HttpServletRequest request, HttpServletResponse response) throws IOException{
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	public Map getSeckillById(SeckillInfo seckillInfo, HttpServletRequest request, HttpServletResponse response) throws IOException{
 		Map map = new HashMap();
 		try {
-			SeckillInfo seckillInfo = new SeckillInfo();
-			seckillInfo.setSeckillId(seckillid);
-			map.put("seckill", preProcessor.preProcess(seckillInfo));
+			int result = preProcessor.preProcess(seckillInfo);
+			if (result == Constants.Seckill.SECKILL_SUCCESS){
+				map.put("promptMsg", "秒杀成功!");
+			}else{
+				map.put("promptMsg", "没库存啦，下次努力呀!");
+			}
+			map.put("seckill", result);
 			map.put("result", "success");
-			map.put("promptMsg", "查询秒杀成功!");
+
 		} catch (Exception e) {
 			map.put("result", "failed");
-			map.put("promptMsg", "查询秒杀失败!");
+			map.put("promptMsg", "秒杀失败!");
 			map.put("errorMsg", e.getMessage());
-			logger.error("查询秒杀信息失败。", e);
+			logger.error("秒杀失败:", e);
+
+			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 		}
 		return map;
 	}

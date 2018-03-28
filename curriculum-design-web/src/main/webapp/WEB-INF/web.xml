@@ -9,7 +9,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>,classpath*:config/spring-mvc.xml,classpath*:config/spring-mybatis.xml,
-            classpath*:config/spring-redis.xml</param-value>
+            classpath*:config/spring-redis.xml,classpath*:config/spring-quartz.xml</param-value>
     </context-param>
 
     <!--配置监听器-->

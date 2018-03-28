@@ -57,7 +57,9 @@ public interface ISeckillSV {
 	 * @return 新增数量
 	 */
 	public int insertSeckill(Seckill seckill);
-	
+
+
+	public boolean reduceInventory(Seckill seckill);
 }
 
 

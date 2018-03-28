@@ -42,6 +42,11 @@ public class SeckillSVImpl implements ISeckillSV {
 	}
 
 	@Override
+	public boolean reduceInventory(Seckill seckill) {
+		return seckillMapper.reduceInventory(seckill) > 0;
+	}
+
+	@Override
 	public int deleteSeckillById(Integer id) {
 		return seckillMapper.deleteByPrimaryKey(id);
 	}
@@ -50,4 +55,6 @@ public class SeckillSVImpl implements ISeckillSV {
 	public int deleteSeckill(SeckillExample seckillExample) {
 		return seckillMapper.deleteByExample(seckillExample);
 	}
+
+
 }

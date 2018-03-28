@@ -117,7 +117,7 @@
 	</tx:advice>
 
     <aop:config>
-        <aop:pointcut id="transactionPointcut" expression="execution(* top.aiome.*.service..*SVImpl.*(..))" />
+        <aop:pointcut id="transactionPointcut" expression="execution(* top.aiome.*.service..*Process.*(..))" />
         <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"  order="1"/>
     </aop:config>
 	
