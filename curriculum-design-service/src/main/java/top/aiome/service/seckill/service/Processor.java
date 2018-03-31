@@ -94,7 +94,8 @@ public class Processor {
                     }
                 });
             }
-        }else if (hasKeyLoc){//如果redis没有库存信息但是又锁
+        }else if (hasKeyLoc){
+            //如果redis没有库存信息但是又锁
             reminds = 0;
         }
         return reminds;
