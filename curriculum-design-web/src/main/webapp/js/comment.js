@@ -2,20 +2,20 @@
 mui('body').on('tap', 'a', function() {
 	document.location.href = this.href;
 });
- //头部导航效果
-window.onload = function() {
-	  var mySwiper1 = new Swiper('#header',{
-		  freeMode : true,
-		  slidesPerView : 'auto',
-	  });	  
-}
-//活动滚动效果
-var swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    slidesPerView: 3,
-    paginationClickable: true,
-    spaceBetween: 30
-});
+//  //头部导航效果
+// window.onload = function() {
+// 	  var mySwiper1 = new Swiper('#header',{
+// 		  freeMode : true,
+// 		  slidesPerView : 'auto',
+// 	  });
+// }
+// //活动滚动效果
+// var swiper = new Swiper('.swiper-container', {
+//     pagination: '.swiper-pagination',
+//     slidesPerView: 3,
+//     paginationClickable: true,
+//     spaceBetween: 30
+// });
 //点击更多分类商品
  $(function(){
 	$(".nav-fix-btn").click(function(){
