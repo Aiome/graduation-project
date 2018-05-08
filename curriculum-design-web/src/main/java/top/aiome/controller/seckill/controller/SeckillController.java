@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import top.aiome.dao.seckill.entity.Seckill;
 import top.aiome.dao.seckill.entity.SeckillExample;
+import top.aiome.redis.aspect.RequestLimit;
 import top.aiome.service.seckill.service.Processor;
 import top.aiome.service.seckill.service.SeckillInfo;
 import top.aiome.service.seckill.service.interfaces.ISeckillSV;
@@ -41,6 +42,7 @@ public class SeckillController {
 
 
 	@ResponseBody
+	@RequestLimit(time = 3000)
 	@RequestMapping(value="getSeckillById")
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public Map getSeckillById(SeckillInfo seckillInfo, HttpServletRequest request, HttpServletResponse response) throws IOException{

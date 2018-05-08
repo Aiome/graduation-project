@@ -20,8 +20,7 @@
 <body style="background: #f4f4f4;">
 	
 	 <div class="newtitle">
-	   <h2>全球热门</h2>
-	   <p><i class="iconfont">&#xe604;</i>正品保证 <i class="iconfont">&#xe601;</i>包税包邮<i class="iconfont">&#xe606;</i>极速发货</p>
+	   <h2>热门秒杀</h2>
 	 </div>
 	 <ul class="list-product">
     	<li>
@@ -36,7 +35,7 @@
     					</div>
     					<div class="fr">
     						<p class="shou">仅售2件</p>
-    						<span class="miao-start">马上抢</span>
+							<a href="order.html"class="miao-start">马上抢</a>
     					</div>
     				</div>
     			</div>
@@ -54,7 +53,7 @@
 						 </div>
 						 <div class="fr">
 							 <p class="shou">仅售2件</p>
-							 <span class="miao-pre">未开始</span>
+							 <a href="order.html"class="miao-pre">未开始</a>
 						 </div>
 					 </div>
 				 </div>
@@ -102,6 +101,7 @@
     <script src="js/jquery-1.10.1.min.js"></script>
     <script src="js/swiper.min.js"></script>
 	<script type="text/javascript" src="js/jquery.countdown.min.js" ></script>
+	<script type="text/javascript" src="js/comment.js" ></script>
     <script type="text/javascript" src="js/miaosha.js" ></script><script type="text/javascript">
 		 $(function(){
 			 var twoDaysFromNow = new Date().valueOf() + 60 * 60 * 993;
@@ -110,6 +110,9 @@
 				 $(this).html(event.strftime(totalHours + '  : %M : %S'));
 			 });
 		 })
+          $(".miao-start").click(function(){
+              window.location.href = "order.html";
+          })
 	 </script>
 </body>
 </html>

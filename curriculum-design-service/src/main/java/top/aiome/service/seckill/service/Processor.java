@@ -60,7 +60,8 @@ public class Processor {
      * @return
      */
     private int checkReminds(Integer seckillId,Long m) {
-        int reminds = 1;    //从Redis检查数据，不必完全严格检查
+        //从Redis检查数据，不必完全严格检查
+        int reminds = 1;
         boolean hasKey = redisTemplate.hasKey(generateRedisKey(seckillId));
         boolean hasKeyLoc = redisTemplate.hasKey(generateRedisKeyLoc(seckillId));
         //redis库存已经初始化
@@ -69,21 +70,29 @@ public class Processor {
             reminds = count < 1 ? 0 : 1;
             logger.info(m + "---redis 库存情况:" + count);
         }else if(!hasKeyLoc){ //如果redis库存未初始化并且没有锁
+
             //校验商品有效性
             Seckill seckillById = seckillSVImpl.getSeckillById(seckillId);
             logger.info(m + "---mysql 库存情况:" + seckillById.getSeckillCount());
-            if (seckillById == null){ return 2; }
+            if (seckillById == null){
+                return 2;
+            }
             reminds = seckillById.getSeckillCount() < 1 ?  0 : 1;
+
             //将库存存入redis  并且线程同步
             synchronized (this){
+
                 boolean hasLoc = redisTemplate.hasKey(generateRedisKeyLoc(seckillId));
                 if (hasLoc){
                     return redisTemplate.opsForList().size(generateRedisKey(seckillId)) > 0 ? 1 : 0;
                 }
-                //redis加锁并且将库存刷入
+
+                //redis加锁
                 redisTemplate.opsForList().leftPush(generateRedisKeyLoc(seckillId),1);
+
                 List<Object> objects = redisTemplate.executePipelined(new RedisCallback<Object>() {
-                    @Override//redis管道刷库存数据
+                    //redis管道刷库存数据
+                    @Override
                     public Object doInRedis(RedisConnection connection) throws DataAccessException {
                         connection.openPipeline();
                         for (int i = 1; i <= seckillById.getSeckillCount(); i ++){
@@ -95,7 +104,7 @@ public class Processor {
                 });
             }
         }else if (hasKeyLoc){
-            //如果redis没有库存信息但是又锁
+            //如果redis没有库存信息但是有锁
             reminds = 0;
         }
         return reminds;
@@ -108,20 +117,25 @@ public class Processor {
      */
     public int preProcess(SeckillInfo info){
         Long m = System.currentTimeMillis();
+        //查看库存情况并且处理redis库存
         int result = checkReminds(info.getSeckillId(),m);
         if (1 == result) {//有库存
-             //原子操作扣减Redis缓存库存
-             Integer value = redisTemplate.opsForList().rightPop(generateRedisKey(info.getSeckillId()));
-             logger.info(m + "---减redis库存返回值：" + value);
-            //开启事务进行减库存下单操作
+
+            //原子操作扣减Redis缓存库存
+            Integer value = redisTemplate.opsForList().rightPop(generateRedisKey(info.getSeckillId()));
+            logger.info(m + "---减redis库存返回值：" + value);
+
+            //进行减库存下单操作
             if (null != value && value >= 0){
                 logger.info( m + "---redis 出队：successful");
                 Seckill seckill = new Seckill();
                 seckill.setId(info.getSeckillId());
+
                 //扣库存
                 boolean reduceInventory = seckillSVImpl.reduceInventory(seckill);
                 if (!reduceInventory){  logger.info( m + "---扣减库存：失败" );    }
                 logger.info( m + "---扣减库存：成功" );
+
                 //下单
                 Order order = new Order();
                 order.setTypeId(info.getSeckillId());
@@ -136,9 +150,11 @@ public class Processor {
                 return  Constants.Seckill.SECKILL_SUCCESS;
             }
             return Constants.Seckill.SECKILL_FAIL;
-        }else if (2 == result){//秒杀不存在
+        }else if (2 == result){
+            //秒杀不存在
             return Constants.Seckill.SECKILL_ILLEGAL_ID;
-        }else if (0 == result){//无库存
+        }else if (0 == result){
+            //无库存
             logger.info(m + "---无库存");
             return Constants.Seckill.SECKILL_FAIL;
         }

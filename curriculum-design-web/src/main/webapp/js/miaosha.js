@@ -11,6 +11,6 @@
 //
 // });
 
-$(".miao-start").click(function(){
-    window.location.href = "order.html";
-})
+// $(".miao-start").click(function(){
+//     window.location.href = "order.html";
+// })

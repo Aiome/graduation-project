@@ -23,6 +23,7 @@ import top.aiome.service.seckill.service.Processor;
 @Controller
 @RequestMapping("/groupPurchase")
 public class GroupPurchaseController {
+	//Spring 注入团购的服务类
 	@Autowired
 	private IGroupPurchaseSV groupPurchaseSVImpl;
 	
@@ -31,13 +32,22 @@ public class GroupPurchaseController {
 	@Autowired
 	private Processor preProcessor;
 
-	@RequestLimit(time = 500)
+	/**
+	 * 获取团购列表接口
+	 * @param itemId  商品ID
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws IOException
+	 */
+	@RequestLimit(time = 500) //限时 500毫秒内 相同IP或者相同用户只能调用一次该接口
 	@ResponseBody
-	@RequestMapping(value="getGroupPurchaseInfo")
+	@RequestMapping(value="getGroupPurchaseInfo")//获取团购列表
 	public Map getGroupPurchaseById(Integer itemId, HttpServletRequest request, HttpServletResponse response) throws IOException{
 		Map map = new HashMap();
 		try {
 
+			//调用 服务层 获取团购信息列表
 			List<GroupInfo> info = groupPurchaseSVImpl.getGroupInfo(itemId);
 
 			map.put("groupPurchase", info);
