@@ -255,6 +255,8 @@ img{max-width: 100%; width: auto; height: auto; vertical-align: top; border: 0;}
 .list-pro-price  .price del{ color: #666; font-size: .24rem; margin-left: .15rem;}
 .shou{ margin-top: .25rem; font-size: .24rem; text-align: right;}
 .tuan{width: 1.3rem; border-radius: .1rem; margin-top: .1rem; display: block; background: #ff5943; color: #fff; text-align: center; font-size: .24rem;}
+.miao-pre{width: 1.3rem; border-radius: .1rem; margin-top: .1rem; display: block; background: #c8c7cc; color: #fff; text-align: center; font-size: .24rem;}
+.miao-start{width: 1.3rem; border-radius: .1rem; margin-top: .1rem; display: block; background: #ff5943; color: #fff; text-align: center; font-size: .24rem;}
 /*个人中心*/
 .member{    height: 2.7rem; background: url(../images/bg.png) no-repeat; background-size:cover; padding: .1rem .2rem;  position: relative; width: 100%;}
 .member-pic img{ border-radius: 50%; border: 1px solid #fff; width: 1.28rem; height: 1.28rem; margin: .65rem 0 0 .2rem;}

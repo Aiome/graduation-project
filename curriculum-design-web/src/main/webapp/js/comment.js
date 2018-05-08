@@ -38,6 +38,13 @@ $(function(){
 		$(".mui-backdrop").hide();
 		$(".g-detail").slideUp();
 	})
+    $(".btn").click(function(){
+        $(".mui-backdrop").show();
+        $(".g-detail").slideDown();
+    })
+    $(".g-detail-btn").click(function(){
+        window.location.href = "order.html";
+    })
 })
 $(function(){
 	$(".g-detail-color , .g-detail-size").each(function(){
