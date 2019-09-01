@@ -42,11 +42,73 @@
         <property name="jobDetail" ref="updateSeniorityJob" />
         <property name="cronExpression" value="0 0/5 * * * ?" />
     </bean>
+
+    <!-- 定时更新充值页面Cookie -->
+    <bean id="updateIndexCookieJobClass" class="top.aiome.job.UpdateIndexCookie" />
+    <bean id="updateIndexCookieJob"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="updateIndexCookieJobClass" />
+        </property>
+        <property name="targetMethod">
+            <value>executeInternal</value>
+        </property>
+        <property name="concurrent">
+            <value>false</value>
+        </property>
+    </bean>
+    <bean id="updateIndexCookieCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="updateIndexCookieJob" />
+        <property name="cronExpression" value="0 0,20,40 * * * ?" />
+    </bean>
+
+    <!-- 定时更新充值页面Cookie -->
+    <bean id="UpdateLqCookieJobClass" class="top.aiome.job.UpdateLqCookie" />
+    <bean id="UpdateLqCookieJob"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="UpdateLqCookieJobClass" />
+        </property>
+        <property name="targetMethod">
+            <value>executeInternal</value>
+        </property>
+        <property name="concurrent">
+            <value>false</value>
+        </property>
+    </bean>
+    <bean id="UpdateLqCookieCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="UpdateLqCookieJob" />
+        <!--<property name="cronExpression" value="0 30 15 ? * *" />-->
+        <property name="cronExpression" value="0 57-59 9 * * ?" />
+    </bean>
+
+    <!-- 定时更新抢券时间 -->
+    <bean id="UpdateTimeJobClass" class="top.aiome.job.UpdateTime" />
+    <bean id="UpdateTimeJob"
+          class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject">
+            <ref bean="UpdateTimeJobClass" />
+        </property>
+        <property name="targetMethod">
+            <value>executeInternal</value>
+        </property>
+        <property name="concurrent">
+            <value>false</value>
+        </property>
+    </bean>
+    <bean id="UpdateTimeCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail" ref="UpdateTimeJob" />
+        <!--<property name="cronExpression" value="0 30 15 ? * *" />-->
+        <property name="cronExpression" value="0 20,50 13 * * ?" />
+    </bean>
     <!-- 配置调度工厂 -->
     <bean name="schedulerFactory" lazy-init="false" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="triggers">
             <list>
                 <!--<ref bean="updateSeniorityCronTrigger" />-->
+                <ref bean="updateIndexCookieCronTrigger" />
+                <ref bean="UpdateLqCookieCronTrigger" />
+                <ref bean="UpdateTimeCronTrigger" />
             </list>
         </property>
     </bean>

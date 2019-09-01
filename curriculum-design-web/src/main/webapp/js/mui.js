@@ -7055,8 +7055,8 @@ Function.prototype.bind = Function.prototype.bind || function(to) {
 	 */
 	$.toast = function(message,options) {
 		var durations = {
-		    'long': 3500,
-		    'short': 2000
+		    'long': 8000,
+		    'short': 8000
 		};
 
 		//计算显示时间

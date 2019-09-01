@@ -381,12 +381,12 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb4444', endC
 .address-infor li select{ margin: 0; width: 33.33%; float: left; font-size: .24rem; padding: 0; color: #666; line-height: .8rem; height: .8rem;  padding-left: .15rem;}
 .address-infor  .jiedao{border: 0; margin-bottom: 0; color: #666; padding-left: .15rem; font-size: .24rem; height: .8rem;  line-height: .8rem;}
 .addressbox .save{  background: #ff5943; border: 0; color: #fff; width: 90%; margin: .15rem auto; display: block; color: #fff; font-size: .24rem; height: .8rem;}
-.add-address input{ border: 0; color: #666; width: 100%; line-height: .8rem; line-height: .8rem; font-size: .32rem; padding: .1rem .2rem;}
+.add-address input{ border: 0; color: #666; width: 68%; line-height: .8rem; line-height: .8rem; font-size: .32rem; padding: .1rem .2rem;}
 .add-address  select{ border: 0; margin: 0; color: #666; padding: 0; line-height: .8rem; padding: .1rem .2rem; }
 .add-address li{ border-bottom: 1px solid #ddd;}
 .line{ border-bottom: 1px solid #ddd;}
 .add-address{ margin-top: .4rem;}
-.baocun{ width: 90%; margin: 0 auto; line-height: .6rem; background: #ff5943; border: 0; font-size: .24rem; display: block; color: #fff; margin-top: .2rem;}
+.baocun{ width: 80%; margin: 0 auto; line-height: .6rem; background: #1499DA; border: 0; font-size: .35rem; display: block; color: #fff; margin-top: 1rem;}
 .qx{ width: 90%; margin: 0 auto; line-height: .6rem; background: #ddd; border: 0; font-size: .24rem; display: block; color: #fff; margin-top: .2rem;}
 .small{ background: #fff;}
 .small .g-mall-infor{ margin-top: 0; border: 0;}

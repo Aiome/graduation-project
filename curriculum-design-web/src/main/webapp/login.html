@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>活动登记---请联系区域经理</title>
+    <link href="css/mui.min.css" type="text/css" rel="stylesheet" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript"> 
+        !function(J){function H(){var d=E.getBoundingClientRect().width;var e=(d/7.5>100*B?100*B:(d/7.5<42?42:d/7.5));E.style.fontSize=e+"px",J.rem=e}var G,F=J.document,E=F.documentElement,D=F.querySelector('meta[name="viewport"]'),B=0,A=0;if(D){var y=D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);y&&(A=parseFloat(y[1]),B=parseInt(1/A))}if(!B&&!A){var u=(J.navigator.appVersion.match(/android/gi),J.navigator.appVersion.match(/iphone/gi)),t=J.devicePixelRatio;B=u?t>=3&&(!B||B>=3)?3:t>=2&&(!B||B>=2)?2:1:1,A=1/B}if(E.setAttribute("data-dpr",B),!D){if(D=F.createElement("meta"),D.setAttribute("name","viewport"),D.setAttribute("content","initial-scale="+A+", maximum-scale="+A+", minimum-scale="+A+", user-scalable=no"),E.firstElementChild){E.firstElementChild.appendChild(D)}else{var s=F.createElement("div");s.appendChild(D),F.write(s.innerHTML)}}J.addEventListener("resize",function(){clearTimeout(G),G=setTimeout(H,300)},!1),J.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(G),G=setTimeout(H,300))},!1),H()}(window);
+        if (typeof(M) == 'undefined' || !M){
+            window.M = {};
+        }
+    </script>
+	<style type="text/css">
+		[contenteditable = "true"], input, textarea {
+			-webkit-user-select: auto!important;
+			-khtml-user-select: auto!important;
+			-moz-user-select: auto!important;
+			-ms-user-select: auto!important;
+			-o-user-select: auto!important;
+			user-select: auto!important;
+		}
+		.huoqu {
+			color: #fff;
+			margin-top: .2rem;
+			line-height: .4rem;
+			background: #1499DA;
+			border: 0;
+		}
+	</style>
+    
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav line" >
+	    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+	    <h1 class="mui-title" style=" font-size:12px; letter-spacing:2px; text-align:center;">河北区域内部渠道专用</h1>
+	</header>
+	<div class="mb-50"></div>
+    <div style="background:url(images/logo.jpg) no-repeat center; width:100%; height:166px;"></div>
+	<ul class="add-address" style="width:80%; margin:.5rem auto 0 auto;">
+		<li>
+			<input id="phone" pattern="[0-9]{1,}" title="请输入正确的手机号" placeholder="填写手机号" style="font-size:.25rem;" />
+		</li>
+		<li>
+			<input id="code" placeholder="填写验证码"  style="font-size:.25rem;" />
+			<button type="button" class="huoqu" onclick="sms()" style="font-size:.25rem;" >获取验证码</button>
+                       
+		</li>
+	</ul>
+	<div class="mb-50" style="text-align:center; margin:.5rem auto 0 auto; color:#aaa; font-size:12px; letter-spacing:1px;">登记前请与区域经理取得联系<br/>经理确认后一般3-5天内安排充值<br></div>
+	<button class="baocun" onclick="login()">登记</button>
+
+	<script src="js/jquery-1.10.1.min.js"></script>
+	<script src="js/mui.min.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/area.js"></script>
+	<script>
+
+		function sms() {
+            var param = {};
+            if (phone.value == ''){
+                mui.toast("请填写手机号码");
+                return;
+			}
+            var re = /^1\d{10}$/
+            if (re.test(phone.value)) {
+            } else {
+                mui.toast("输入正确手机号!");
+                return;
+            }
+
+
+
+            param.phone = phone.value;
+            $.ajax({
+                type:"get",
+                url:"register/sms",
+                data:param,
+                success:function(r){
+                    if(r.result== "success"){
+                        mui.toast(param.phone +" 发送验证码成功");
+                    }else{
+                        mui.toast(r.errorMsg);
+                    }
+                }
+            })
+        }
+        function login() {
+            var param = {};
+            if (code.value == ''){
+                mui.toast("请填写验证码!");
+                return;
+            }
+            var re = /\d{6}$/
+            if (re.test(code.value)) {
+            } else {
+                mui.toast("输入正确验证码!");
+                return;
+            }
+
+            param.phone = phone.value;
+            param.smsCode = code.value;
+            if (GetQueryString("tag")){
+                param.tag = GetQueryString("tag");
+			}
+            $.ajax({
+                type:"get",
+                url:"register/login",
+                data:param,
+                success:function(r){
+                    if(r.result== "success"){
+                        mui.toast(param.phone +" 登记成功!");
+                        phone.value = "";
+                        code.value = "";
+                    }else{
+                        mui.toast(r.promptMsg);
+                    }
+                }
+            })
+        }
+
+        function GetQueryString(name)
+        {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+	</script>
+</body>
+</html>

@@ -53,7 +53,11 @@
 
   <dependencyManagement>
       <dependencies>
-
+          <dependency>
+              <groupId>javax.mail</groupId>
+              <artifactId>mail</artifactId>
+              <version>1.4.7</version>
+          </dependency>
           <!-- Junit测试 -->
           <dependency>
               <groupId>junit</groupId>
@@ -233,6 +237,13 @@
               <version>${javax.servlet-api}</version>
               <scope>provided</scope>
           </dependency>
+
+          <dependency>
+              <groupId>org.apache.httpcomponents</groupId>
+              <artifactId>httpclient</artifactId>
+              <version>4.5.1</version>
+          </dependency>
+
 
 
 

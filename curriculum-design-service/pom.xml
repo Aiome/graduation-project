@@ -20,6 +20,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>curriculum-design-dao</artifactId>
             <version>${project.version}</version>

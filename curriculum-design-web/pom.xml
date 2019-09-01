@@ -12,6 +12,10 @@
     <name>curriculum-design-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+        </dependency>
         <!--添加 util service依赖-->
         <dependency>
             <groupId>top.aiome.curriculum-design</groupId>

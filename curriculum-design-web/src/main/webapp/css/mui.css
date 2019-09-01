@@ -1501,6 +1501,8 @@ input[type='submit']:enabled:active, input[type='submit'].mui-active:enabled,
     margin: 0;
 
     text-overflow: ellipsis;
+
+    font-size: .4rem;
 }
 .mui-bar .mui-backdrop
 {

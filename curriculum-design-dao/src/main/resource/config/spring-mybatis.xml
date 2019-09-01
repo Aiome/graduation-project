@@ -26,7 +26,7 @@
     
     
     <!-- 开启事务控制的注解支持 -->  
-    <!--<tx:annotation-driven transaction-manager="transactionManager" order="0"/>-->
+    <tx:annotation-driven transaction-manager="transactionManager" order="0"/>
     
     <!-- 开启支持@AspectJ风格的切面声明 -->  
   	<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>  
@@ -103,6 +103,7 @@
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+    <tx:annotation-driven proxy-target-class="false" transaction-manager="transactionManager" />
 
 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
 	     <tx:attributes>
@@ -117,7 +118,7 @@
 	</tx:advice>
 
     <aop:config>
-        <aop:pointcut id="transactionPointcut" expression="execution(* top.aiome.*.service..*Process.*(..))" />
+        <aop:pointcut id="transactionPointcut" expression="execution(* top.aiome.*.service..*.*(..))" />
         <aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"  order="1"/>
     </aop:config>
 	
