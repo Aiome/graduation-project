@@ -29,7 +29,7 @@
       <!-- log4j日志文件管理包版本 -->
       <slf4j.version>1.7.7</slf4j.version>
       <log4j-over-slf4j.version>1.7.7</log4j-over-slf4j.version>
-      <log4j2-version>2.13.3</log4j2-version>
+      <log4j2-version>2.17.1</log4j2-version>
       <!--分页相关-->
       <pagehelper.version>4.1.6</pagehelper.version>
       <jsqlparser.version>0.9.5</jsqlparser.version>
